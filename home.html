@@ -2,54 +2,94 @@
 <html>
 	<head>
 		<title>shop</title>
-
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Caveat|Permanent+Marker|Special+Elite&display=swap" rel="stylesheet">
 	</head>
-	<body style="background-color:powderblue;">
-		
-	<script>
-	function mouseOver() {
-  	document.getElementById("demo").style.color = "red";
-	}
-
-	function mouseOut() {
-  	document.getElementById("demo").style.color = "black";
-	}
-	</script>
-	<script>
-	function mouseOvere() {
-  	document.getElementById("demo1").style.color = "red";
-	}
-
-	function mouseOute() {
-  	document.getElementById("demo1").style.color = "black";
-	}
-	</script>
-	<script>
-	function mouseOverr() {
-  	document.getElementById("demo2").style.color = "red";
-	}
-
-	function mouseOutr() {
-  	document.getElementById("demo2").style.color = "black";
-	}
-	</script>
-		
+	<body style="background-color:powderblue;">	
 		<center>
-		<h1>home page</h1>
+		<h1 id="header">home page</h1>
 		
 		<h1><a href="about.html">about page--></a></h1>
 		<table>
 			<tr>
-			<h2 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()"> Dog  </h2>    
-			<a href="https://www.puppyspot.com/puppies-for-sale"><img src="Dog.jpg" height="200" width="250"></a>    
-		<h3>a common animal with four legs, especially kept by people as a pet or to hunt or guard things</h3></tr>
-		<h2 id="demo1" onmouseover="mouseOvere()" onmouseout="mouseOute()">Cat</h2>
-			<a href="https://gokitty.com/"><img src="Cat.jpg" height="200" width="250"></a>
-		<h3>evil small animal with fur, four legs, a tail, and claws, usually kept as a pet or for catching mice </h3>
-		<h2 id="demo2" onmouseover="mouseOverr()" onmouseout="mouseOutr()">Man</h2>
-			<img src="Man.jpg" height="200" width="250">
-		<h3>an adult male human being</h3>
-	</table>
+				<th class="sale"> sale! all the red items in half price!!</th>
+			</tr>
+			<tr>
+				<td><h2 id="demo" data-tooltip="the price is 'all the money you have'$"> Dog  </h2> </td>   
+				<td><h2 id="demo1" class="sale" data-tooltip="the price is 1/2$">Cat</h2></td>    
+				<td><h2 id="demo2" class="sale" data-tooltip="the price is 300$">Role modle</h2></td>
+			</tr>
+			<tr>
+				<td><a href="https://www.puppyspot.com/puppies-for-sale"><img src="Dog.jpg" height="200" width="250"></a></td>
+				<td><a href="https://gokitty.com/"><img src="Cat.jpg" height="200" width="250"></a></td>
+				<td><img src="Man.jpg" height="200" width="250"></td>
+			</tr>	
+				<td><p>a common animal with four leg, especially kept by people as a pet or to huntor guard things</p></td>
+				<td><p>evil small animal with fur, four legs, a tail, and claws, usually kept as a pet or for catching mice </p></td>
+				<td><p>an adult male human being</p></td>
+			</tr>
+		</table>
+
+
+    
+    
+
+    <script>
+    let tooltip;
+
+    document.onmouseover = function(event) {
+      // important: a fast-moving mouse may "jump" right to a child on an annotated node, skipping the parent
+      // so mouseover may happen on a child.
+
+      let anchorElem = event.target.closest('[data-tooltip]');
+
+      if (!anchorElem) return;
+
+      // show tooltip and remember it
+      tooltip = showTooltip(anchorElem, anchorElem.dataset.tooltip);
+    }
+
+    document.onmouseout = function() {
+      // it is possible that mouseout triggered, but we're still inside the element
+      // (its target was inside, and it bubbled)
+      // but in this case we'll have an immediate mouseover,
+      // so the tooltip will be destroyed and shown again
+      //
+      // luckily, the "blinking" won't be visible,
+      // as both events happen almost at the same time
+      if (tooltip) {
+        tooltip.remove();
+        tooltip = false;
+      }
+
+    }
+
+
+    function showTooltip(anchorElem, html) {
+      let tooltipElem = document.createElement('div');
+      tooltipElem.className = 'tooltip';
+      tooltipElem.innerHTML = html;
+      document.body.append(tooltipElem);
+
+      let coords = anchorElem.getBoundingClientRect();
+
+      // position the tooltip over the center of the element
+      let left = coords.left + (anchorElem.offsetWidth - tooltipElem.offsetWidth) / 2;
+      if (left < 0) left = 0;
+
+      let top = coords.top - tooltipElem.offsetHeight - 5;
+      if (top < 0) {
+        top = coords.top + anchorElem.offsetHeight + 5;
+      }
+
+      tooltipElem.style.left = left + 'px';
+      tooltipElem.style.top = top + 'px';
+
+      return tooltipElem;
+    }
+
+
+  </script>
 		</center>
 	</body>
 </html>
