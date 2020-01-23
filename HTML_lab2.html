@@ -2,35 +2,13 @@
 <html>
 	<head>
 	<title> try</title>
-		<script>
-		//console.log('hello world');
-		//var birthYear = prompt("what year didyou born" );
-		//birthYear =parseInt(birthYear);
-		//var luckyNum = prompt("what is youre lucky number?");
-		//luckyNum = parseInt(luckyNum)
-		//var favFruit = "strawberry";
-		//var favSubject = "CS";
-		//alert(birthYear/luckyNum);
-		//alert(birthYear+luckyNum);
-		//alert(birthYear+favSubject);
-		//alert(birthYear+luckyNum+favFruit);
-		//alert(birthYear+luckyNum+favSubject);
-		//document.write(birthYear/luckyNum);
-		var player1 = prompt("player1, where do you want to put X");
-		player1 = parseInt(player1);
-		if (player1 == 1){
-			document.getElementById("1").innerHTML = "X";
-			console.log("gdfsui");
-		}
 
-
-		</script>
 	</head>
 	<body>
 		<table>
 			<tr>
 			<td id="1">
-				
+				1
 			</td>
 			<td id="2">
 				2
@@ -62,5 +40,286 @@
 			</td>
 			</tr>
 		</table>
+		<script>
+		//console.log('hello world');
+		//var birthYear = prompt("what year didyou born" );
+		//birthYear =parseInt(birthYear);
+		//var luckyNum = prompt("what is youre lucky number?");
+		//luckyNum = parseInt(luckyNum)
+		//var favFruit = "strawberry";
+		//var favSubject = "CS";
+		//alert(birthYear/luckyNum);
+		//alert(birthYear+luckyNum);
+		//alert(birthYear+favSubject);
+		//alert(birthYear+luckyNum+favFruit);
+		//alert(birthYear+luckyNum+favSubject);
+		//document.write(birthYear/luckyNum);
+		console.log("hello");
+		var list =[[0,0,0],[0,0,0],[0,0,0]];
+		var turn = 1;
+		var gameover = false;
+		var player1 = 0 ; 
+		var player2 = 0;
+		while (gameover == false){
+			if (turn==1){
+				var player1 = prompt("player1, where do you want to put X");
+				turn = 2;
+				nicole();
+				gameOver(list);
+			}else if(turn == 2){
+				var player2 = prompt("player2, where do you want to put O");
+				turn = 1
+				nicole();
+				gameOver(list);
+			}
+		}
+		
+	
+			
+		function X(num){
+			var n= num.toString();
+			document.getElementById(n).innerHTML = "X";
+		}
+		function O(num){
+			var n= num.toString();
+			document.getElementById(n).innerHTML = "O";
+		}
+		function what(num){
+			var n = num.toString();
+			if (num==1){
+				if (turn == 1) {
+					if(list[0][0]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[0][0]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==2){
+				console.log(list)
+				if (turn == 1) {
+					if(list[0][1]=="X"){
+						player2 =prompt("NO! You are stupid! Try again");
+						console.log(list)
+					}else if(list[0][1]=="O"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[0][1]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}else if(list[0][1]=="X"){
+						player2 =prompt("NO! You are stupid! Try again");
+					}
+				}
+			}else if (num==3){
+				if (turn == 1) {
+					if(list[0][2]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[0][2]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==4){
+				if (turn == 1) {
+					if(list[1][0]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[1][0]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==5){
+				if (turn == 1){
+					if(list[1][1]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[1][1]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==6){
+				if (turn == 1) {
+					if(list[1][2]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[1][2]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==7){
+				if (turn == 1) {
+					if(list[2][0]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[2][0]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==8){
+				if (turn == 1) {
+					if(list[2][1]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[2][1]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}else if (num==9){
+				if (turn == 1) {
+					if(list[2][2]=="X"){
+						player1 =prompt("NO! You are stupid! Try again");
+					}
+				}else if (turn == 2) {
+					if(list[2][2]=="O"){
+						player2 =prompt("NO! You are stupid! Try again1");
+					}
+				}
+			}
+		}
+
+		function gameOver(list){
+			if (list[0][0] == "X"&& list[1][1] == "X"&&list[2][2]=="x"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[0][0] == "X"&& list[0][1] == "X"&&list[0][2]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[0][0] == "X"&& list[0][1] == "X"&&list[0][2]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[0][1] == "X"&& list[1][1] == "X"&&list[2][1]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[1][0] == "X"&& list[1][1] == "X"&&list[1][2]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[0][2] == "X"&& list[1][2] == "X"&&list[2][2]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[2][0] == "X"&& list[2][1] == "X"&&list[2][2]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}else if (list[2][0] == "X"&& list[1][1] == "X"&&list[0][2]=="X"){
+				var won = alert("X won, Game Over");
+				gameover = true;
+			}
+			if (list[0][0] == "O"&& list[1][1] == "O"&&list[2][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[0][0] == "O"&& list[0][1] == "O"&&list[0][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[0][0] == "O"&& list[0][1] == "O"&&list[0][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[0][1] == "O"&& list[1][1] == "O"&&list[2][1]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[1][0] == "O"&& list[1][1] == "O"&&list[1][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[0][2] == "O"&& list[1][2] == "O"&&list[2][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[2][0] == "O"&& list[2][1] == "O"&&list[2][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}else if (list[2][0] == "O"&& list[1][1] == "O"&&list[0][2]=="O"){
+				var won = alert("O won, Game Over");
+				gameover = true;
+			}
+		}
+		
+		function nicole(){
+		if (player2 == 1){
+			what(1);
+			O(1);
+			list[0][0] = "O";
+		} else if (player2 == 2){
+			what(2);
+			O(2);
+			list[0][1] = "O";
+		}else if (player2 == 3){
+			what(3);
+			O(3);
+			list[0][2] = "O";
+		}else if (player2 == 4){
+			what(4);
+			O(4);
+			list[1][0] = "O";
+		}else if (player2 == 5){
+			what(5);
+			O(5);
+			list[1][1] = "O";
+		}else if (player2 == 6){
+			what(6);
+			O(6);
+			list[1][2] = "O";
+		}else if (player2== 7){
+			what(7);
+			O(7);
+			list[2][0] = "O";
+		}else if (player2 == 8){
+			what(8);
+			O(8);
+			list[2][1] = "O";
+		}else if (player2 == 9){
+			what(9);
+			O(9);
+			list[2][2] = "O";
+		}
+		if (player1 == 1){
+			what(1);
+			X(1);
+			list[0][0] = "X";
+		} else if (player1 == 2){
+			what(2);
+			X(2);
+			list[0][1] = "X";
+		}else if (player1 == 3){
+			what(3);
+			X(3);
+			list[0][2] = "X";
+		}else if (player1 == 4){
+			what(4);
+			X(4);
+			list[1][0] = "X";
+		}else if (player1 == 5){
+			what(5);
+			X(5);
+			list[1][1] = "X";
+		}else if (player1 == 6){
+			what(6);
+			X(6);
+			list[1][2] = "X";
+		}else if (player1 == 7){
+			what(7);
+			X(7);
+			list[2][0] = "X";
+		}else if (player1 == 8){
+			what(8);
+			X(8);
+			list[2][1] = "X";
+		}else if (player1 == 9){
+			what(9);
+			X(9);
+			list[2][2] = "X";
+		}
+		}
+		list[1][0] = 1;
+		console.log(list[1][0]);
+
+
+
+
+		</script>
 	</body>
 </html>
