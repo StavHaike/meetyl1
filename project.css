@@ -12,11 +12,11 @@ button {
   margin-top: 100px;
   background-color: #8c8c8c;
 } 
-
 button:hover{
   background-color:black;
   color:#8c8c8c;
 }
+
 h1{
   text-align: center;
   font-family: 'Rock Salt', cursive;

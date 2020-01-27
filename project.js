@@ -1,6 +1,7 @@
 document.body.style.backgroundImage = "url('RaBP.gif')";
 var count = 0;
 var start = new Date();
+
 function leftFunction(){
 	if(count>0){
 		console.log("it's working!!");
@@ -11,7 +12,7 @@ function leftFunction(){
 		document.getElementById("TA").innerHTML="You Died! the apocolypse killed human kind!";
 		document.body.style.backgroundImage = "url('dog.gif')";
 	}else if(count === 1){
-		document.getElementById("left").innerHTML="Ask for help with award, you will do anything to prevent it";
+		document.getElementById("left").innerHTML="offer an award, you will do anything to prevent it";
 		document.getElementById("right").innerHTML="Don't offer an award, you know you can't afford this";
 		document.getElementById("TA").innerHTML="You advertiseing in the news and papers, but what will you offer?";
 		document.body.style.backgroundImage = "url('news.gif')";
@@ -23,9 +24,9 @@ function leftFunction(){
 		rightt.insertAdjacentHTML("afterend",up);
 		rightt.insertAdjacentHTML("afterend",down);
 		console.log("hi");
-		document.getElementById("right").innerHTML="Threatened to will kill their family.";
+		document.getElementById("right").innerHTML="Threatened to kill their family.";
 		document.getElementById("left").innerHTML="Commit an insurance fraud"; 
-		document.getElementById("TA").innerHTML="A lot of people come, you saved the world! But now they wont their money";
+		document.getElementById("TA").innerHTML="A lot of people come, you saved the world! But now they want their money";
 		document.body.style.backgroundImage = "url('winn.gif')";
 	}else if(count===3){
 		document.getElementById("right").style.display = 'none';
@@ -59,7 +60,7 @@ function rightFunction(){
 		start = new Date();
 		document.getElementById("right").innerHTML="Call your friends and family";
 		document.getElementById("left").innerHTML="Advertise in the news and papers, get the public to help you";
-		document.getElementById("TA").innerHTML="Call for help from everyone you know. No metter what you can stop it.";
+		document.getElementById("TA").innerHTML="Call for help from everyone you know. No matter what, you can stop it.";
 		document.body.style.backgroundImage = "url('call.gif')";
 		console.log("heyyy");
 	}else if(count===1){
@@ -76,10 +77,10 @@ function rightFunction(){
 		document.body.style.backgroundImage = "url('Ssuicide.gif')";
 	}else if(count===3){
 		document.getElementById("up").style.display = 'none';
-		document.getElementById("down").innerHTML="Just Threat";
+		document.getElementById("down").innerHTML="Just  a threat";
 		document.getElementById("left").innerHTML="Kill someone";
 		document.getElementById("right").style.display = 'none';
-		document.getElementById("TA").innerHTML="Threatened to kill their family.";
+		document.getElementById("TA").innerHTML="Threaten to kill their family.";
 		document.body.style.backgroundImage = "url('Killfamily.gif')";
 	}else if(cuont===4){
 		document.getElementById("up").style.display = 'none';
@@ -101,7 +102,7 @@ function rightFunction(){
 
 function upFunction(){
 	if(count===3){
-		document.getElementById("TA").innerHTML="GAME OVER";
+		document.getElementById("TA").innerHTML="No it's not! You still have hope in life! I refuse to think otherwise";
 		document.getElementById("right").style.display = 'none';
 		document.getElementById("left").style.display = 'none';
 		document.getElementById("up").style.display = 'none';
